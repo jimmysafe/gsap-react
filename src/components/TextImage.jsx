@@ -12,29 +12,29 @@ const TextImage = () => {
 
     useEffect(() => {
 
-        // gsap.from(layerRef.current, {
-        //   scrollTrigger: {  
-        //     trigger: layerRef.current,
-        //     start: 'top bottom',
-        //     end: 'bottom bottom',
-        //     scrub: true
-        //   },
-        //   width: 0
-        // })
+        gsap.from(layerRef.current, {
+          scrollTrigger: {  
+            trigger: layerRef.current,
+            start: 'top bottom',
+            end: 'bottom bottom',
+            scrub: true
+          },
+          width: 0
+        })
     
-        // const timeline = gsap.timeline()
-        // timeline.from(titleRef.current, { opacity: 0, y: 50 })
-        // timeline.from(textWrapperRef.current, { opacity: 0, y: 50 })
-        // timeline.to(textWrapperRef.current, { scrollTo: { y: "max" } })
+        const timeline = gsap.timeline()
+        timeline.from(titleRef.current, { opacity: 0, y: 50 })
+        timeline.from(textWrapperRef.current, { opacity: 0, y: 50 })
+        timeline.to(textWrapperRef.current, { scrollTo: { y: "max" } })
     
         
-        // ScrollTrigger.create({
-        //   animation: timeline,
-        //   trigger: wrapperRef.current,
-        //   start: "top top",
-        //   pin: true,
-        //   scrub: true    
-        // })
+        ScrollTrigger.create({
+          animation: timeline,
+          trigger: wrapperRef.current,
+          start: "top top",
+          pin: true,
+          scrub: true    
+        })
         
     
        

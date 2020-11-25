@@ -32436,14 +32436,10 @@ video {
   animation: bounce 1s infinite;
 }
 
-/* section {
+section {
   min-height: 100vh;
   width: 100%;
-} */
-
-/* body {
-  overflow-x: hidden;
-} */
+}
 
 h1 {
   font-size: 4rem;

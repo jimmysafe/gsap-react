@@ -6,23 +6,23 @@ const FullText = () => {
     const wrapper = useRef(null)
     const section = useRef(null)
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        gsap.from(wrapper.current, { 
-            opacity: 0,
-            y: 150,
-            duration: 1,
-            scrollTrigger: {
-                trigger: section.current,
-                start: "+=1090",
-                pin: true,
-                scrub: 1,
-                // markers: true
-              }
-         })
+    //     gsap.from(wrapper.current, { 
+    //         opacity: 0,
+    //         y: 150,
+    //         duration: 1,
+    //         scrollTrigger: {
+    //             trigger: section.current,
+    //             start: "+=1090",
+    //             pin: true,
+    //             scrub: 1,
+    //             // markers: true
+    //           }
+    //      })
         
 
-    }, [])
+    // }, [])
 
     return (
         <article ref={section}>
