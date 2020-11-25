@@ -14,22 +14,18 @@ const Intro = () => {
         const timeline = gsap.timeline()
 
         timeline
-        .set(animatedSectionRef.current, { width: '25%' })
         .set(titleRef.current, { scale: 1.1 })
         .set(infoRef.current, { opacity: 0, y: -120})
 
-        .to(animatedSectionRef.current, { width: '50%', duration: 1 })
-        .to(titleRef.current, { y: -150, duration: 1, scale: 1 }, 0)
-        .to(infoRef.current, { opacity: 1, y:-150, duration: 2 })
-        .to(textContainerRef.current, { opacity: 0, y: 50, duration: 1})
-        .to(textContainerRef.current, { display: 'none' })
-        .to(animatedSectionRef.current, { width: '100%' })
+        .to(titleRef.current, { y: -150, scale: 1 }, 0)
+        .to(infoRef.current, { opacity: 1, y:-150 }, "<")
+        .to(textContainerRef.current, { opacity: 0 })
 
         ScrollTrigger.create({
             animation: timeline,
             trigger: wrapperRef.current,
             start: "top top",
-            end: "bottom -=3000",
+            end: "bottom -=2000",
             pin: true,
             scrub: true
         })
@@ -37,7 +33,7 @@ const Intro = () => {
     }, [])
 
     return (
-        <section ref={wrapperRef} className="relative flex justify-between">
+        <article ref={wrapperRef} className="relative flex justify-between h-full">
             <div ref={animatedSectionRef} className="w-1/4 bg-black h-full"></div>
             <div className="flex-1 bg-yellow-300">
                 <div ref={textContainerRef} className="px-8 flex flex-col items-start justify-center h-full">
@@ -56,7 +52,7 @@ const Intro = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </article>
     )
 }
 

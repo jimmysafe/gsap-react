@@ -1,13 +1,25 @@
-// import FullText from "./components/FullText";
-// import Intro from "./components/Intro";
-// import TextImage from "./components/TextImage";
-import React, { useEffect, useState, useRef } from 'react'
+
+import React, { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger } from 'gsap/all'
-import Section from './components/Section'
+import Intro from './components/Intro'
+import FullText from './components/FullText'
+import TextImage from './components/TextImage'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const App = ({ sectionN }) => {
+// const items = [
+//   { render: () => <Intro /> },
+//   { render: () => <FullText /> },
+//   //{ render: () => <TextImage /> }
+// ]
+
+const items = [
+  { color: "blue", render: (i) => <p className="font-bold">{i}</p> },
+  { color: "yellow", render: (i) => <p className="font-bold">{i}</p> },
+  { color: "green", render: (i) => <p className="font-bold">{i}</p> },
+]
+
+const App = () => {
   
   const container = useRef(null)
 
@@ -18,13 +30,13 @@ const App = ({ sectionN }) => {
     let sections = gsap.utils.toArray(".section")
   
     gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
+      xPercent: +100 * (sections.length - 1),
       ease: 'none',
       scrollTrigger: {
         trigger: container.current,
         pin: true,
         scrub: 1,
-        snap: 1 / (sections.length - 1),
+        // snap: 1 / (sections.length - 1),
         end: () => "+=" + container.current.offsetWidth
       }
     })
@@ -34,23 +46,19 @@ const App = ({ sectionN }) => {
   return (
     <main 
       ref={container}
-      className="flex flex-nowrap h-full " 
-      //style={{ width: `${sectionN}00%` }} // this will then be retrieved from the api response Prismic
-      style={{ width: '100%' }}
+      className="flex flex-nowrap  h-full bg-black" 
+      style={{ width: `${items.length}00%` }}
     >
-      <Section color="blue">
-        <p>asd</p>
-      </Section>
-      <Section color="red">
-        <p>asd</p>
-      </Section>
+      {items.map((section, i) => (
+          <section 
+            key={i}
+            className={`section relative bg-${section.color}-500 h-screen  top-0`}
+            style={{ width: '100%', right: i === 0 ? '0%' : '100%' }}
+          >
+            {section.render()}
+          </section>
+      ))}
 
-      <Section color="yellow">
-
-      </Section>
-      {/* <Intro />
-      <FullText />
-      <TextImage /> */}
     </main>
   );
 }

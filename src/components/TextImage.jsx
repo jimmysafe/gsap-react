@@ -12,36 +12,36 @@ const TextImage = () => {
 
     useEffect(() => {
 
-        gsap.from(layerRef.current, {
-          scrollTrigger: {  
-            trigger: layerRef.current,
-            start: 'top bottom',
-            end: 'bottom bottom',
-            scrub: true
-          },
-          width: 0
-        })
+        // gsap.from(layerRef.current, {
+        //   scrollTrigger: {  
+        //     trigger: layerRef.current,
+        //     start: 'top bottom',
+        //     end: 'bottom bottom',
+        //     scrub: true
+        //   },
+        //   width: 0
+        // })
     
-        const timeline = gsap.timeline()
-        timeline.from(titleRef.current, { opacity: 0, y: 50 })
-        timeline.from(textWrapperRef.current, { opacity: 0, y: 50 })
-        timeline.to(textWrapperRef.current, { scrollTo: { y: "max" } })
+        // const timeline = gsap.timeline()
+        // timeline.from(titleRef.current, { opacity: 0, y: 50 })
+        // timeline.from(textWrapperRef.current, { opacity: 0, y: 50 })
+        // timeline.to(textWrapperRef.current, { scrollTo: { y: "max" } })
     
         
-        ScrollTrigger.create({
-          animation: timeline,
-          trigger: wrapperRef.current,
-          start: "top top",
-          pin: true,
-          scrub: true    
-        })
+        // ScrollTrigger.create({
+        //   animation: timeline,
+        //   trigger: wrapperRef.current,
+        //   start: "top top",
+        //   pin: true,
+        //   scrub: true    
+        // })
         
     
        
       }, [])
 
     return (
-    <section ref={wrapperRef} className="flex items-center relative bg-black">
+    <article ref={wrapperRef} className="flex items-center relative bg-black h-full w-full">
         <div ref={layerRef} className="absolute top-0 left-0 bg-yellow-300 h-full w-1/2" >
         </div>
         <div className="container mx-auto h-full flex justify-center items-start">
@@ -60,7 +60,7 @@ const TextImage = () => {
             </div>
           </article>
     </div>
-    </section>
+    </article>
     )
 }
 
